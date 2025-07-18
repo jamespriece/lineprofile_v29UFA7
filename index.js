@@ -2,6 +2,8 @@
 const axios = require('axios');
 const fs = require('fs');
 const express = require('express');
+const sharp = require('sharp');
+const blockhash = require('./blockhash-core');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -11,7 +13,7 @@ const batchSize = 5;  // ตรวจสอบทีละ 5 บัญชี
 const delayBetweenBatches = 500; // ms
 
 app.get('/', (req, res) => {
-  res.send('✅ LINE OA Monitor (Notify Every Check) is Running');
+  res.send('✅ LINE OA Monitor (Emoji Alerts) is Running');
 });
 
 async function sendTelegram(botToken, chatId, message) {
@@ -34,28 +36,88 @@ async function sendStartNotification() {
   }
 }
 
+async function hashImageFromUrl(url) {
+  if (!url) throw new Error('Invalid URL');
+  const response = await axios.get(url, { responseType: 'arraybuffer' });
+  const imgBuffer = Buffer.from(response.data);
+  const hash = await blockhash.bmvbhash(imgBuffer, 16);
+  return hash;
+}
+
+function saveExpectedData(accountName, displayName, pictureUrl) {
+  const filename = `expectedData_${accountName}.json`;
+  const data = {
+    displayName: displayName,
+    pictureUrl: pictureUrl,
+    savedAt: new Date().toISOString()
+  };
+  fs.writeFileSync(filename, JSON.stringify(data, null, 2));
+  console.log(`💾 เซฟ expected สำหรับ ${accountName} แล้ว`);
+}
+
+function hammingDistance(hash1, hash2) {
+  let distance = 0;
+  for (let i = 0; i < hash1.length; i++) {
+    if (hash1[i] !== hash2[i]) distance++;
+  }
+  return distance;
+}
+
 async function checkAccount(account) {
   let log = [];
   try {
-    log.push(`👤 ตรวจสอบบัญชี: ${account.name}`);
-    // จำลองผลลัพธ์สุ่ม
-    const randomNameChanged = Math.random() < 0.2;
-    const randomPictureChanged = Math.random() < 0.2;
-    if (randomNameChanged) {
-      log.push(`🔴 ชื่อ LINE เปลี่ยน!`);
+    log.push(`📢 [${account.name}]`);
+    const response = await axios.get('https://api.line.me/v2/bot/info', {
+      headers: { Authorization: `Bearer ${account.channelAccessToken}` }
+    });
+    const currentDisplayName = response.data.displayName;
+    const currentPictureUrl = response.data.pictureUrl || null;
+
+    let expectedDisplayName = account.expectedDisplayName;
+    let expectedPictureUrl;
+    const expectedFile = `expectedData_${account.name}.json`;
+
+    if (fs.existsSync(expectedFile)) {
+      const expectedData = JSON.parse(fs.readFileSync(expectedFile));
+      expectedDisplayName = expectedData.displayName;
+      expectedPictureUrl = expectedData.pictureUrl;
     } else {
-      log.push(`🟢 ชื่อ LINE ถูกต้อง`);
+      saveExpectedData(account.name, currentDisplayName, currentPictureUrl);
+      log.push(`📸 เซฟ expected ชื่อและรูปอัตโนมัติ`);
+      expectedPictureUrl = currentPictureUrl;
     }
-    if (randomPictureChanged) {
-      log.push(`🔴 รูปโปรไฟล์เปลี่ยน!`);
+
+    if (expectedDisplayName && currentDisplayName !== expectedDisplayName) {
+      log.push(`❌❌❌❌❌ ชื่อ LINE เปลี่ยนจาก "${expectedDisplayName}" → "${currentDisplayName}"`);
     } else {
-      log.push(`🟢 รูปโปรไฟล์ถูกต้อง`);
+      log.push(`✅✅✅ ชื่อ LINE ถูกต้อง: ${currentDisplayName}`);
+    }
+
+    if (!currentPictureUrl) {
+      log.push(`⚠️ ไม่มีรูปโปรไฟล์ (pictureUrl = null)`);
+    } else {
+      try {
+        const expectedHash = await hashImageFromUrl(expectedPictureUrl);
+        const currentHash = await hashImageFromUrl(currentPictureUrl);
+        const distance = hammingDistance(expectedHash, currentHash);
+        const similarity = ((1 - distance / (expectedHash.length * 4)) * 100).toFixed(2);
+
+        if (similarity < 95) {
+          log.push(`🔴 รูปโปรไฟล์เปลี่ยน!`);
+          saveExpectedData(account.name, currentDisplayName, currentPictureUrl);
+        } else {
+          log.push(`🟢 รูปถูกต้อง (${similarity}%)`);
+        }
+      } catch (imgErr) {
+        log.push(`⚠️ ตรวจสอบรูปไม่ได้: ${imgErr.message}`);
+      }
     }
   } catch (err) {
-    log.push(`❌ Error: ${err.message}`);
+    log.push(`❌ เกิดข้อผิดพลาด: ${err.response?.data || err.message}`);
   } finally {
     const combinedMessage = log.join("\n");
     await sendTelegram(account.telegramBotToken, account.telegramChatId, combinedMessage);
+    console.log(`✅ ตรวจสอบแล้ว: ${account.name}`);
   }
 }
 
@@ -73,14 +135,13 @@ async function checkAllAccounts() {
 }
 
 const intervalMs = config.checkIntervalMinutes * 60 * 1000;
-console.log(`⏱️ ระบบจะตรวจสอบทุก ${config.checkIntervalMinutes} นาที (พร้อมแจ้งเตือน)`);
+console.log(`⏱️ ระบบจะตรวจสอบทุก ${config.checkIntervalMinutes} นาที (พร้อมอีโมจิแจ้งเตือน)`);
 setInterval(() => {
   console.log(`
 ⏳ เริ่มการตรวจสอบรอบใหม่ (Rate Limited)`);
   checkAllAccounts();
 }, intervalMs);
 
-// เริ่มการตรวจสอบรอบแรกทันที
 checkAllAccounts();
 
 app.listen(port, () => {
