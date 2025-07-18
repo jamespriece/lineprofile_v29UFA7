@@ -1,5 +1,5 @@
 {
-  "checkIntervalMinutes": 10,
+  "checkIntervalMinutes": 60,
   "accounts": [
     {
       "name": "U7M-Service",
