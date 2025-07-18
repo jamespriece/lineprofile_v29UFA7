@@ -88,13 +88,13 @@ async function checkAccount(account) {
     // ตรวจสอบชื่อ LINE
     if (expectedDisplayName) {
       if (current.displayName !== expectedDisplayName) {
-        alertMessages.push(`❌ ชื่อ LINE เปลี่ยนจาก "${expectedDisplayName}" → "${current.displayName}"`);
+        alertMessages.push(`❌ ชื่อ LINE เปลี่ยนจาก "${expectedDisplayName}" → "${current.displayName}"❌❌❌❌❌❌❌❌`);
       } else {
         alertMessages.push(`✅ ชื่อ LINE ถูกต้อง: ${current.displayName}`);
       }
     } else {
       if (current.displayName !== expectedData.displayName) {
-        alertMessages.push(`❌ ชื่อ LINE เปลี่ยนจาก "${expectedData.displayName}" → "${current.displayName}"❌❌❌❌❌❌❌❌`);
+        alertMessages.push(`❌ ชื่อ LINE เปลี่ยนจาก "${expectedData.displayName}" → "${current.displayName}"`);
         saveExpectedData(account.name, current.displayName, current.pictureUrl);
       } else {
         alertMessages.push(`✅ ชื่อ LINE: ${current.displayName}`);
