@@ -115,7 +115,7 @@ async function checkAccount(account) {
           alertMessages.push(`❌ รูปเปลี่ยน (ความเหมือน ${similarity}%)`);
           saveExpectedData(account.name, current.displayName, current.pictureUrl);
         } else {
-          alertMessages.push(`✅ รูปเหมือนเดิม (${similarity}%)`);
+          alertMessages.push(`✅ รูปถูกต้อง (${similarity}%)`);
         }
       } catch (hashErr) {
         alertMessages.push(`⚠️ ตรวจสอบรูปไม่ได้: ${hashErr.message}`);
