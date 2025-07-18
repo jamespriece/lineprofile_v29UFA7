@@ -90,11 +90,11 @@ async function checkAccount(account) {
     if (expectedDisplayName && currentDisplayName !== expectedDisplayName) {
       log.push(`❌❌❌❌❌ ชื่อ LINE เปลี่ยนจาก "${expectedDisplayName}" → "${currentDisplayName}"`);
     } else {
-      log.push(`✅✅✅ ชื่อ LINE ถูกต้อง: ${currentDisplayName}`);
+      log.push(`✅ ชื่อ LINE ถูกต้อง: ${currentDisplayName}`);
     }
 
     if (!currentPictureUrl) {
-      log.push(`⚠️ ไม่มีรูปโปรไฟล์ (pictureUrl = null)`);
+      log.push(`⚠️⚠️⚠️⚠️⚠ ไม่มีรูปโปรไฟล์ (pictureUrl = null)⚠️⚠️⚠️⚠️`);
     } else {
       try {
         const expectedHash = await hashImageFromUrl(expectedPictureUrl);
@@ -103,10 +103,10 @@ async function checkAccount(account) {
         const similarity = ((1 - distance / (expectedHash.length * 4)) * 100).toFixed(2);
 
         if (similarity < 95) {
-          log.push(`🔴 รูปโปรไฟล์เปลี่ยน!`);
+          log.push(`❌ รูปโปรไฟล์เปลี่ยน!`);
           saveExpectedData(account.name, currentDisplayName, currentPictureUrl);
         } else {
-          log.push(`🟢 รูปถูกต้อง (${similarity}%)`);
+          log.push(`✅ รูปถูกต้อง (${similarity}%)`);
         }
       } catch (imgErr) {
         log.push(`⚠️ ตรวจสอบรูปไม่ได้: ${imgErr.message}`);
