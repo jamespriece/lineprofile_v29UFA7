@@ -88,7 +88,7 @@ async function checkAccount(account) {
     // ตรวจสอบชื่อ LINE
     if (expectedDisplayName) {
       if (current.displayName !== expectedDisplayName) {
-        alertMessages.push(`❌ ชื่อ LINE เปลี่ยนจาก "${expectedDisplayName}" → "${current.displayName}"❌❌❌❌❌❌❌❌`);
+        alertMessages.push(`❌ ชื่อ LINE เปลี่ยนจาก "${expectedDisplayName}" → "${current.displayName}"❌❌❌❌❌❌`);
       } else {
         alertMessages.push(`✅ ชื่อ LINE ถูกต้อง: ${current.displayName}`);
       }
@@ -112,7 +112,7 @@ async function checkAccount(account) {
         const similarity = ((1 - distance / (expectedHash.length * 4)) * 100).toFixed(2);
 
         if (similarity < 95) {
-          alertMessages.push(`❌ รูปเปลี่ยน (ความเหมือน ${similarity}%)❌❌❌❌❌❌❌❌`);
+          alertMessages.push(`❌ รูปเปลี่ยน (ความเหมือน ${similarity}%)❌❌❌❌❌❌`);
           saveExpectedData(account.name, current.displayName, current.pictureUrl);
         } else {
           alertMessages.push(`✅ รูปถูกต้อง (${similarity}%)`);
