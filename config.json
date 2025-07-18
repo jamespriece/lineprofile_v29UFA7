@@ -3,21 +3,21 @@
   "accounts": [
     {
       "name": "U7M-Service",
-      "expectedDisplayName": "U7M-Service",
+      "expectedDisplayName": "U7M - Service",
       "channelAccessToken": "D3kjs7vjgcRMd926aFzHdB8CvToKmVpvXxKq3xM+5TRlMhPq8Lse8dVVwZpXVLw1PqkIUTyS/yEZkNC3lHxjJRMV0pCOetGrVlwxMrbXFXp3YqsPO1j4WcQo8K4uPIc7Y2vtZwCwBYL/Xha4gSmdIAdB04t89/1O/w1cDnyilFU=",
       "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
       "telegramChatId": "-4810422254"
     },
     {
       "name": "U7M-VIP",
-      "expectedDisplayName": "U7M-VIP",
+      "expectedDisplayName": "U7M - VIP",
       "channelAccessToken": "gCXFpOsPP9fQqlBwen0a248RnnESt7qKHphWBVmZNTL0k53j/Y7FkX+eax8kBtg1+f7BBx891IfCvrw+/b3lqpuhyWqGLfva9Kqv1oRIgSLkb7rbK1ieuj+JwkSK5jdTCb8uVAeWS/y0rlmf4Kc7PAdB04t89/1O/w1cDnyilFU=",
       "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
       "telegramChatId": "-4810422254"
     },
     {
       "name": "SV 365XO",
-      "expectedDisplayName": "SV 365XO",
+      "expectedDisplayName": "Sv 365xo",
       "channelAccessToken": "LHMpcqdMKS2F1jxMbWUj8jp9eK3xSseqOc7iFsyRhm6ZhiMa2L5whFehN6vB6EqvX4h0YQbU+6aBA/QWU/cPi6V68NjP1phA8MTNdj9byXa90ha7FsvDtfcpzYTPxcrGTpR42amc9Gqf1/7rbLJBtwdB04t89/1O/w1cDnyilFU=",
       "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
       "telegramChatId": "-4810422254"
@@ -51,8 +51,8 @@
       "telegramChatId": "-4810422254"
     },
     {
-      "name": "U365 พร้อมบริการ",
-      "expectedDisplayName": "U365 พร้อมบริการ",
+      "name": "365 พร้อมบริการ",
+      "expectedDisplayName": "365 พร้อมบริการ",
       "channelAccessToken": "LiZVgK7/BhYm6k/1zRULriuf9VpGrmZsTWd2D3+YC70NntujS2uStAVVEArZC14JPczf7oUPYbhPhYrfi4Gw7H/OBgSQsIzBkM2NFx3muAFdszsYwhd8mVSkzSAyR5/Yrby8jXEABQGUgTuEBDS6XgdB04t89/1O/w1cDnyilFU=",
       "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
       "telegramChatId": "-4810422254"
