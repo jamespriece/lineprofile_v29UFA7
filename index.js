@@ -82,8 +82,12 @@ async function checkAccount(account) {
       expectedDisplayName = expectedData.displayName;
       expectedPictureUrl = expectedData.pictureUrl;
     } else {
-      saveExpectedData(account.name, currentDisplayName, currentPictureUrl);
-      log.push(`📸 เซฟ expected ชื่อและรูปอัตโนมัติ`);
+      if (!currentDisplayName || currentDisplayName === "NONAME") {
+        log.push(`⚠️ ไม่สามารถบันทึก expected name ได้ (ชื่อปัจจุบันเป็น "${currentDisplayName}")`);
+      } else {
+        saveExpectedData(account.name, currentDisplayName, currentPictureUrl);
+        log.push(`📸 เซฟ expected ชื่อและรูปอัตโนมัติ`);
+      }
       expectedPictureUrl = currentPictureUrl;
     }
 
