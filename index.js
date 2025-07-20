@@ -23,8 +23,16 @@ async function sendTelegram(botToken, chatId, message) {
       text: message,
       parse_mode: "HTML"
     });
+    await delay(1500); // 🕐 Delay to prevent rate limit
   } catch (err) {
-    console.error("❌ Error sending Telegram message:", err.response?.data || err.message);
+    if (err.response?.status === 429) {
+      const retryAfter = err.response.data.parameters.retry_after || 5;
+      console.warn(`⚠️ Rate limit hit! Retrying after ${retryAfter}s...`);
+      await delay(retryAfter * 1000);
+      return sendTelegram(botToken, chatId, message); // 🔁 Retry
+    } else {
+      console.error("❌ Telegram error:", err.response?.data || err.message);
+    }
   }
 }
 
@@ -98,7 +106,7 @@ async function checkAccount(account) {
     }
 
     if (!currentPictureUrl) {
-      log.push(`⚠️⚠️⚠️⚠️⚠ ไม่มีรูปโปรไฟล์ (pictureUrl = null)⚠️⚠️⚠️⚠️`);
+      log.push(`⚠️⚠️⚠️⚠️ ไม่มีรูปโปรไฟล์ (pictureUrl = null)⚠️⚠️⚠️⚠️`);
     } else {
       try {
         const expectedHash = await hashImageFromUrl(expectedPictureUrl);
