@@ -56,6 +56,34 @@
       "channelAccessToken": "LiZVgK7/BhYm6k/1zRULriuf9VpGrmZsTWd2D3+YC70NntujS2uStAVVEArZC14JPczf7oUPYbhPhYrfi4Gw7H/OBgSQsIzBkM2NFx3muAFdszsYwhd8mVSkzSAyR5/Yrby8jXEABQGUgTuEBDS6XgdB04t89/1O/w1cDnyilFU=",
       "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
       "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "7M-Events",
+      "expectedDisplayName": "7M-Events",
+      "channelAccessToken": "xrnUzr7kHPodl5CQeoLoVvLkM9P1GP5Mv7G5C4PQXmgt9OC/ksYpQvzwNnGccwirCnlsVYjy+jYSBcXvF2kosud05ZvyUWfIKPcblhlvv8S0SJ29K4GpCFc0CEIJtj/Yv82WX++gxhOeK3v8M6yezwdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "UFA7Mnew",
+      "expectedDisplayName": "UFA7Mnew",
+      "channelAccessToken": "0g2HaEc1la5prPKzpok4b7KsqiRUU/t5fQaKtQSnFPkm7kl+1r4Pg0Gl5r98A41xTGeGmZR/RT+RHpEIwvJ7MSbchgjhljEQ13/lTJlUl/YJgL44mLkulhGvNUeGcz7ZsgUHirtKRPBx/QqZpYaDgAdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "VIP-7M",
+      "expectedDisplayName": "VIP-7M",
+      "channelAccessToken": "GKSK8RhqRgvyU1n0/7l6Z2csHzkNkVNp8JwKDO/k6Z2Kl+fO2LdHcxt7KUMwXPelQ/rAombhhIlzNWAxcZ4aanj2/2ZhnzM6prpTGQwcOsHPYjsPVhDr+ekBq2Q1tLxOB6FrydkrMbnjN6S39SPpewdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "7msport",
+      "expectedDisplayName": "7msport",
+      "channelAccessToken": "pP8SufrafC/9LI4vuUsqzAy9Bim26vZk2kQfJAzLjx3NzbrVQZ63FzQisN4YYHd/zhKaHwSlQNtcY+OJwsIw9n9J7dyTramSmZoBrAb5m4apH+EJKjbHpfUpHQJGOZAfTheivsLzd0IuRD/GEt7MrQdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
     }
   ]
 }
