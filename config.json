@@ -84,6 +84,34 @@
       "channelAccessToken": "pP8SufrafC/9LI4vuUsqzAy9Bim26vZk2kQfJAzLjx3NzbrVQZ63FzQisN4YYHd/zhKaHwSlQNtcY+OJwsIw9n9J7dyTramSmZoBrAb5m4apH+EJKjbHpfUpHQJGOZAfTheivsLzd0IuRD/GEt7MrQdB04t89/1O/w1cDnyilFU=",
       "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
       "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "7PRO",
+      "expectedDisplayName": "7PRO",
+      "channelAccessToken": "WN3L9H1CxudU5vGgVww6ocodb1UhT+Q3GneVL8AOke9NqBMSUg1HLzWYY2RHQ9L+co2KJ/U7tmvftvdBH/BcPii8fMEFpEx7VOaHDwyQgfoFc2fsXJo+WK7fAz+AlgbYoH8WHbiz/g8LQY/BcMIPyQdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "7MGiZ",
+      "expectedDisplayName": "7MGiZ",
+      "channelAccessToken": "RZ7PE66kGLJdVgk1H/BeC8Xiq9B1Dibv+icv00lymQUEyqRBNRFOH6bbzdSP1h6KEyAM3RqXM7PRJQF+RMV+OnZdPVrs+f8eEOgVlwkvJE8FM5utOhpNPpbuYBkVAQbziolK8i0RnA4B19aTh5/00wdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "ยู คลิก",
+      "expectedDisplayName": "ยู คลิก",
+      "channelAccessToken": "Yc6Ltppr9//t+SQbdkAJwK9W3JhOD+Ntb6m+nfTeW/urpLcyQ4domepguG9ElDw9GM6iBo1gZ5dXm2vGpRt8ne4gCxZLHTkdPii7TMoqty+TPeFaCYN5qecwcCUm3IF9nFKMp0u67FpnXQhYK28DtAdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
+     },
+    {
+      "name": "ยู แคลช",
+      "expectedDisplayName": "ยู แคลช",
+      "channelAccessToken": "B0rdpyf5ilTdcrTHZtVTKm0Sf0lF63UtfR52J79aPEO1ZrKgmd1G6UX/UesyIVps8W6cqrFOk8NFLKakTbyooq9aClXJxXL6JGs/OwmszC/6E2C18TJ5MU/M4ac6cyeEYSJFKlIJUmfWJvLMrvPuyQdB04t89/1O/w1cDnyilFU=",
+      "telegramBotToken": "7613984128:AAHdvs5n_hOQSBOyY7irOEntNOju9yPi1Eg",
+      "telegramChatId": "-1002853811695"
     }
   ]
 }
